@@ -1,12 +1,8 @@
 import { MouseEventHandler, MouseEvent, useState, useEffect } from 'react'
-
 import Layout from '../components/layout'
 import Logger, { LogEntry } from '../components/logger'
-
 import * as Ably from 'ably/promises'
 import { assertConfiguration, configureAbly } from '@ably-labs/react-hooks'
-
-import styles from '../styles/Home.module.css'
 import authStyles from '../styles/Authentication.module.css'
 
 export default function Authentication() {
@@ -42,12 +38,9 @@ export default function Authentication() {
 
   return (
       <Layout
-        pageTitle="Ably Token Authentication with Next.js"
-        metaDescription="Ably Token Authentication with Next.js"
+        pageTitle=""
+        metaDescription=""
       >
-        <p className={styles.description}>
-          Authenticate and establish a persistent bi-direction connection to the Ably platform.
-        </p>
 
         <section className={authStyles[`connection-${connectionState}`]}>
           <h3>Connection status: <span className={authStyles.label}>{connectionState}</span></h3>
