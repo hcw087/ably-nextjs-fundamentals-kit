@@ -20,6 +20,7 @@ export default function Presence() {
   const [channel, setChannel] =
     useState<Ably.Types.RealtimeChannelPromise | null>(null);
 
+  const [showPresence, setShowPresence] = useState(false);
   const handlePresenceMessage = useCallback(
     (message: Ably.Types.PresenceMessage) => {
       console.log(
@@ -140,10 +141,13 @@ export default function Presence() {
   return (
     <Layout metaDescription="">
       <p className={homeStyles.info}>
-        <a href="/presence" target="_blank">
-          Add More
-        </a>
+        <button onClick={() => setShowPresence(!showPresence)}>Add More</button>
       </p>
+      {showPresence && (
+        <div>
+          {/* Add your additional content here */}
+        </div>
+      )}
       {isUsernameValid === false ? (
         <section className={styles.presence}>
           <form onSubmit={handleFormSubmit}>
